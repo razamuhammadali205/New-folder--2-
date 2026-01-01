@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interior Decor & Furniture Design | Portfolio</title>
+  <meta name="description" content="Interior decor, furniture design, and consultation portfolio" />
+  <style>
+   :root {
+      /* Premium Interior Design Color Palette */
+      --primary: #1f2933;      /* Charcoal Navy */
+      --secondary: #7c5c3b;    /* Warm Wood */
+      --accent: #c9a14a;      /* Luxury Gold */
+      --light: #f4f1ed;       /* Soft Cream */
+      --white: #ffffff;
+      --text: #3a3a3a;
+   } 
+   .navbar {
+    display: flex;
+    justify-content: center; /* Center links horizontally */
+    gap: 40px; /* Space between links */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+  }
+
+  .navbar li a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1rem;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  /* Hover effect */
+  .navbar li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent, #f2c94c); /* Gold accent by default */
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease;
+  }
+
+  .navbar li a:hover::after {
+    width: 100%;
+  }
+
+  .navbar li a:hover {
+    color: var(--accent, #f2c94c);
+  }
+
+  /* Responsive for mobile */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+  }
+
+    * {
+       
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+       font-family: Arial, Helvetica, sans-serif;  
+    }
+
+    body {
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--light);
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    header {
+      background: linear-gradient(rgba(31,41,51,0.65), rgba(31,41,51,0.65)), url('/WhatsApp\ Image\ 2026-01-01\ at\ 10.59.11\ AM.png');
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      padding: 100px 20px;
+      text-align: center;
+      animation: slideDown 1.2s ease-out;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    nav {
+      background: var(--primary);
+      padding: 10px 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--primary);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 8px;
+      
+        background-size: cover;
+        
+    }
+     .Ser{
+        font-size: 45px;
+        font-weight: bolder;
+        
+        margin-bottom: 40px;
+     }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(200px, 1fr));
+      gap: 20px;
+    }
+  
+   .School{
+    font-size: 25px;
+    font-weight: bolder;
+    margin-top: 20px;
+    margin-bottom: 10px;
+   }
+   .School:hover{
+    color: rgb(118, 110, 110);
+    font-size: 22px;
+   }
+   .date1{
+    font-size: x-large;
+    font-weight: bolder;
+    margin-bottom: 10px;
+   }
+   .GYM{
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 15px;
+   }
+    .card {
+      background: var(--white);
+      padding: 23px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      background-color: rgb(225, 225, 250);
+    }
+
+    .card h3 {
+      font-size: x-large;
+      color: var(--primary);
+    }
+.img2{
+    transition: all 0.1s ease-in;
+}
+.img2:hover{
+    transform: scale(0.9);
+}
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .portfolio img {
+      width: 100%;
+      border-radius: 14px;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .portfolio img:hover {
+      transform: scale(1.05);
+      filter: brightness(1.05);
+    }
+  
+    .contact {
+      background-color: #fff;
+      border-radius: 8px;
+      padding-left: 120px;
+      padding-right: 100px;
+      height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contact img{
+        width: 80%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-left: 70px;
+    }
+    .img2{
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+     
+    }
+
+    .contact-info {
+      display: flex;
+     align-items: center;
+      gap: 20px;
+    }
+   
+
+    footer {
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+    }
+    .head{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .head img{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .about,
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+ <!-- NAVIGATION -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <!-- HEADER / HERO -->
+  <header class="head">
+      
+    <div>  
+    <h1>Shahid Nadeem</h1>
+    <p>Interior Decor • Custom Furniture • Design Consultation Expert</p>
+     <p> Shahid Nadeem is a visionary interior design leader with 15+ years of experience creating elegant and functional spaces. As CEO & Founder of Concept 360, he drives bespoke interior décor and custom furniture projects, blending modern aesthetics with practical solutions, while leading the creative direction and growth of his firm.
+ </p>
+    </div>
+    <div>
+        <img src="/16.jpg" alt="">
+    </div>
+    
+
+  </header>
+
+  
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <h2 class="Ser">About</h2>
+    <div class="about">
+      <div>
+        <p>
+          <!-- Personal Introduction -->
+          Shahid Nadeem is a visionary interior design leader with 15+ years of experience creating elegant and functional spaces. As CEO & Founder of Concept 360, he drives bespoke interior décor and custom furniture projects, blending modern aesthetics with practical solutions, while leading the creative direction and growth of his firm.
+        </p>
+        <p>
+          <!-- Additional Details -->
+         Notable projects, or design style (modern, classic,
+          luxury, minimal, etc.).
+        </p>
+      </div>
+      <img src="/cropped-WhatsApp_Image_2025-05-17_at_10.47.44_PM-removebg-preview-removebg-preview.png" alt="Designer Photo" />
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <h2 class="Ser">Services</h2>
+    <div class="services">
+      <div class="card">
+        <img src="/3.jpg" alt="" class="img2">
+        <p class="School">Project Management</p>
+       
+        
+      </div>
+      <div class="card">
+        <img src="/4.jpeg" alt="" class="img2">
+        <p class="School">Design Consultation</p>
+       
+        </div>
+       <div class="card">
+        <img src="/5.jpg" alt="" class="img2">
+        <p class="School">Iterior Decoration</p>
+      </div>
+         <div class="card">
+        <img src="/6.jpg" alt="" class="img2">
+        <p class="School">Custom Furniter Design</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO SECTION -->
+  <section id="portfolio">
+     
+    <h2 class="Ser">Projects</h2>
+    <div class="portfolio">
+      <div class="card">
+        <img src="/kas.jpg" alt="" >
+        <p class="School">Karachi American School</p>
+        <p class="date1">2025</p>
+        <p class="GYM">Playing GYM</p>
+        <p>Located at Ameer Khusro Road, Karachi </p>
+        </div>
+       
+      <div class="card">
+        <img src="/i.jpg" alt="" >
+        <p class="School">AGI Denim K-14-B</p>
+        <p class="date1">2025</p>
+        <p class="GYM">DayCare & Dispensary of AGI Denim</p>
+        <p>Located in Korangi, Karachi </p>
+        </div>
+       <div class="card">
+        <img src="/2.jpg" alt="">
+        <p class="School">AGI Denim K-5</p>
+        <p class="date1">2024</p>
+        <p class="GYM">Corporate Office of AGI Denim</p>
+        <p> Located in Korangi, Karachi  </p>
+        
+      </div>
+        <div class="card">
+        <img src="/7.jpg" alt="" >
+        <p class="School">MR. Ahmed Mukaty</p>
+        <p class="date1">2023</p>
+        <p class="GYM">Residence of Mr. Ahmed Mukaty</p>
+        <p>Located in Kh-e-Ghazi, DHA phase 5, Karachi</p>
+        </div>
+
+          <div class="card">
+        <img src="/8.jpg" alt="" >
+        <p class="School">Mrs. Zavier Mukaty</p>
+        <p class="date1">2023</p>
+        <p class="GYM">Residence of Mr Tamour Mukaty</p>
+        <p>Located in Kh-e-Ghazi, DHA phase 5, Karachi</p>
+        </div>
+         <div class="card">
+        <img src="/9.jpg" alt="" >
+        <p class="School">Fermento</p>
+        <p class="date1">2023</p>
+        <p class="GYM">Outlet of Fermento</p>
+        <p>Located in Kh-e-Ghazi, DHA phase 5, Karachi</p>
+        </div>
+
+           <div class="card">
+        <img src="/10.jpg" alt="" >
+        <p class="School">Herbion</p>
+        <p class="date1">2023</p>
+        <p class="GYM">Outlet of Herbion</p>
+        <p>Located in Lucky One Mall, Karachi </p>
+        </div>
+
+           <div class="card">
+        <img src="/11.jpg" alt="" >
+        <p class="School">STC. Souvenir</p>
+        <p class="date1">2022</p>
+        <p class="GYM">Corporate Office – STC Souvenir</p>
+        <p>Located in DHA Phase II Ext, Karachi  </p>
+        </div>
+
+        
+           <div class="card">
+        <img src="/12.jpg" alt="" >
+        <p class="School">Mr. Sameer Malik</p>
+        <p class="date1">2022</p>
+        <p class="GYM">Residence of Mr. Sameer Malik</p>
+        <p> Located in Kh-e-Shaheen,  DHA, Karachi </p>
+        </div>
+
+
+        <div class="card">
+        <img src="/13.jpg" alt="" >
+        <p class="School">Mr. Haresh Kumar</p>
+        <p class="date1">2022</p>
+        <p class="GYM">Theater in Residence</p>
+        <p>Located in DHA Phase VI, Karachi </p>
+        </div>
+
+        <div class="card">
+        <img src="/14.jpg" alt="" >
+        <p class="School">AGI Denim</p>
+        <p class="date1">2021</p>
+        <p class="GYM">Corporate Office & Lab </p>
+        <p> Located in Memon Goth, Karachi </p>
+        </div>
+
+        <div class="card">
+        <img src="/15.jpg" alt="" >
+        <p class="School">Red Bull</p>
+        <p class="date1">2021</p>
+        <p class="GYM">Corporate Office</p>
+        <p> Located in Dolmen Tower Clifton, Karachi</p>
+        </div>
+    </div>
+ 
+  
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <h2 class="Ser">Contact</h2>
+    <div class="contact">
+      <div class="contact-info">
+        <div>
+          <p><strong>Name:</strong> <!-- Full Name -->Shahid Nadeem</p>
+          <p><strong>Phone:</strong> <!-- Phone Number -->+92 333545430
+</p>
+          <p><strong>Email:</strong> <!-- Email -->shahid.concept360@gmail.com
+</p>
+        </div>
+        <div>
+          <p><strong>Web Address:</strong></p>
+          <p><!-- Web Address -->www.concept360s.com </p>
+          <p><strong>Working Hours:</strong></p>
+          <p><!-- Hours -->Mon – Sat | 10:00 AM – 7:00 PM</p>
+        </div>
+        <div>
+            <img src="/WhatsApp Image 2026-01-01 at 11.12.22 AM.jpeg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Shahid Nadeem | Interior Decor & Furniture Design</p>
+  </footer>
+
+</body>
+</html>
