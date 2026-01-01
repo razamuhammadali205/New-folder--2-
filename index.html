@@ -427,15 +427,8 @@
       to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Loading Optimization */
-    .lazy-load {
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    
-    .lazy-load.loaded {
-      opacity: 1;
-    }
+   
+  
     
     /* ============================================
        RESPONSIVE MEDIA QUERIES
@@ -775,6 +768,113 @@
         background: var(--primary);
       }
     }
+    @media screen and (max-width: 768px) {
+  nav {
+    position: relative;
+  }
+  
+  .navbar {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--primary);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-radius: 0 0 8px 8px;
+    padding: 1rem 0;
+  }
+  
+  /* Show menu when parent has 'active' class */
+  .navbar.active {
+    display: flex;
+  }
+  
+  .navbar li {
+    width: 100%;
+  }
+  
+  .navbar a {
+    display: block;
+    padding: 1rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .navbar li:last-child a {
+    border-bottom: none;
+  }
+  
+  /* Hamburger button (you'll need to add this button in HTML) */
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+}/* Media Query for small screens (mobile devices) */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    background-color: var(--primary);
+    border-radius: 8px;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .navbar li:last-child {
+    border-bottom: none;
+  }
+  
+  .navbar a {
+    display: block;
+    padding: 1rem;
+    width: 100%;
+    color: #495057;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar a:hover {
+    background-color: #e9ecef;
+    color: #007bff;
+  }
+}
+
+/* Optional: Extra small screens */
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem 0;
+  }
+  
+  .navbar a {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Optional: Tablet screens (between mobile and desktop) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    gap: 1.5rem;
+  }
+  
+  .navbar a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -783,6 +883,7 @@
   
   <!-- NAVIGATION -->
   <nav>
+     <button class="menu-toggle">☰</button>
     <ul class="navbar">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
@@ -972,52 +1073,11 @@
     <p>Karachi, Pakistan</p>
   </footer>
   
-  <!-- Lazy Load Script -->
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Lazy loading images
-      const lazyImages = document.querySelectorAll('.lazy-load');
-      
-      const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            img.classList.add('loaded');
-            observer.unobserve(img);
-          }
-        });
-      });
-      
-      lazyImages.forEach(img => imageObserver.observe(img));
-      
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          if (targetId === '#') return;
-          
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 80,
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-      
-      // Add focus styles for keyboard navigation
-      document.addEventListener('keyup', function(e) {
-        if (e.key === 'Tab') {
-          document.body.classList.add('keyboard-nav');
-        }
-      });
-      
-      document.addEventListener('mousedown', function() {
-        document.body.classList.remove('keyboard-nav');
-      });
-    });
-  </script>
+  document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.querySelector('.navbar').classList.toggle('active');
+  });
+</script>
+  
 </body>
 </html>
